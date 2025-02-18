@@ -1,0 +1,138 @@
+/* Bakgrundsbild eller bakgrundsfärg likt Figma */
+.menu-container {
+  width: 390px;
+  background: #8ed8bf;
+  background-image: url("https://s3-alpha-sig.figma.com/img/65fd/3c9e/55949d7ebe28c56421c1160bd1905b3a?Expires=1740960000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ly4VTau7rH3-NJSJJUz-kMuT3~5ys5xF2eQ972mbcaP1Vg2knAbRqBVXSBIYYKzn2cSdhwyerAaVu7lHTxOfNPQx7GnuzI8dbi8p8~rN32InizhQu6elhQnTCTuj0Xh18Qa444waOwHwS5m77fSg8B5eR7-a7g~k32cGOsXw5NOll8L87bovz8EBNuJ-ZCLWOZPGGVsDhRW3SrrqeQSFKpTNg1kwOu47iD3Bm~GdXwo~oDHWrRoOlI1HakhJZCLOpw3UOXlaIySwqUGuqgiFGJz6imStLZsOa4AS8~7pLBFl2iHj8hudXjzpWpa9zhol8FJJ16q00N5SPyScfvEF5A__");
+  margin: 0 auto; /* centrera */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cart-wrapper {
+  position: relative; /* Så vi kan placera ikoner absolut inuti */
+  width: 64px; /* Bestäm en fast storlek för wrappern */
+  height: 64px;
+  cursor: pointer;
+}
+
+.cart-icon {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+}
+
+.union-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 3) Mörka rektangeln med menyn */
+.menu-box {
+  background-color: #4a4a4a; /* mörkgrå eller bruntonad */
+  padding: 1rem;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.menu-list {
+  list-style: none;
+  /* margin: 0; */
+  padding: 0;
+}
+/* Om du redan har .menu-list, .menu-item definierat kan du lägga till detta: */
+
+/* Varje item: lite avstånd nedåt */
+.menu-item {
+  margin-bottom: 1rem;
+  cursor: pointer; /* Ger klickbar markör */
+}
+
+.menu-item:hover {
+  background-color: #7a7a7a;
+}
+
+/* "Rad" för namn + dotted line + pris */
+.item-row {
+  display: flex;
+  align-items: center; /* centrera vertikalt om texten har olika höjd */
+}
+
+/* Namn (Karlstad, Bangkok etc.) */
+.item-name {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+/* Den "osynliga" div som visar prickad linje mellan namn och pris */
+.dots {
+  flex: 1; /* tar upp allt mellanrum i mitten */
+  border-bottom: 1px dotted #aaa; /* själva pricklinjen */
+}
+
+.item-price {
+  font-weight: bold;
+}
+
+.item-ingredients {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+}
+
+.item-row {
+  margin-bottom: 0.5rem;
+}
+
+.item-row span {
+  font-weight: bold;
+}
+
+.dots {
+  margin: 0 0.5rem; /* avstånd mellan text och linje */
+  margin-top: 0.6rem;
+}
+
+.dip-buttons,
+.drink-buttons {
+  display: flex;
+  flex-wrap: wrap; /* radbryt om många knappar */
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.dip-button,
+.drink-button {
+  background-color: #aaa;
+  border: none;
+  color: #ffffff;
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  /* font-size: 0.9rem; */
+  text-transform: lowercase;
+}
+
+.dip-button:hover,
+.drink-button:hover {
+  background-color: #605d5d;
+}
