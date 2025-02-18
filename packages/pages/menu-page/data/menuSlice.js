@@ -29,6 +29,8 @@ const menuSlice = createSlice({
       })
       .addCase(fetchMenu.fulfilled, (state, action) => {
         state.status = "succeeded";
+        console.log("Fetched menu from server:", action.payload);
+
         state.items = action.payload.items;
       })
       .addCase(fetchMenu.rejected, (state, action) => {

@@ -1,0 +1,40 @@
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.menu-item {
+  margin-bottom: 1.5rem;
+  cursor: pointer; /* Ger klickbar markör */
+}
+
+.menu-item:hover {
+  background-color: #7a7a7a;
+}
+
+.item-ingredients {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.menu-button {
+  background-color: #aaa;
+  border: none;
+  color: #ffffff;
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: lowercase;
+}
+
+.menu-button:hover {
+  background-color: #353131;
+}

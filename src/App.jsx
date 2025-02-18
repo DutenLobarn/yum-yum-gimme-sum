@@ -16,12 +16,23 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    // Skapa tenant (om inte redan skapad)
     if (apiKey && !tenantCreated) {
-      // Använd tenantName från store
-      dispatch(createTenant({ tenantName, apiKey }));
+      dispatch(createTenant({ tenantName, apiKey }))
+        .unwrap()
+        .catch((err) => {
+          if (err.message.includes("already exists")) {
+            // Om servern säger "A Tenant with given name already exists"
+            // så sätter vi tenantCreated=true ändå,
+            // för vi VET att den finns (skapad vid annat tillfälle).
+            console.log("Tenant already exists, we will just use it.");
+            // ex. en extra dispatch för att sätta tenantCreated = true i state
+            // eller en setState i en slice-reducer
+          } else {
+            console.error("Error creating tenant:", err);
+          }
+        });
     }
-  }, [apiKey, tenantCreated, tenantName, dispatch]);
+  }, [apiKey, tenantCreated, dispatch]);
 
   return <RouterProvider router={router} />;
 }

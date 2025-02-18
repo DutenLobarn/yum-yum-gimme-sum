@@ -40,6 +40,12 @@ export const createTenant = createAsyncThunk(
 export const placeOrder = createAsyncThunk(
   "order/placeOrder",
   async ({ items, tenantName, apiKey }) => {
+    console.log("Placing order with:", {
+      tenantName,
+      apiKey,
+      items,
+    });
+
     const resp = await fetch(
       `https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/${tenantName}/orders`,
       {
@@ -78,7 +84,7 @@ const orderSlice = createSlice({
       })
       // placeOrder
       .addCase(placeOrder.fulfilled, (state, action) => {
-        state.orderResult = action.payload; // { id, orderValue, eta, ... }
+        state.orderResult = action.payload.order; // { id, orderValue, eta, ... }
       });
   },
 });

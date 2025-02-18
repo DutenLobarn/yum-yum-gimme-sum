@@ -1,0 +1,23 @@
+.item-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.item-name {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-right: 0.5rem;
+}
+
+.dots {
+  flex: 1;
+  border-bottom: 1px dotted #aaa;
+  margin-top: 0.6rem;
+  margin-right: 0.5rem;
+}
+
+.item-price {
+  font-weight: bold;
+}

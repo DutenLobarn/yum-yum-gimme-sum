@@ -1,31 +1,50 @@
-// packages/pages/cart-page/ui/index.jsx
-import { useSelector, useDispatch } from "react-redux";
-import { removeItem } from "../data/cartSlice";
+// packages/pages/cart-page/ui/CartPage.jsx
+import {
+  useSelector,
+  // , useDispatch
+} from "react-redux";
+// import { addItem, removeOne } from "../data/cartSlice";
+import { MenuContainer } from "@mandus/menu-container";
+import { Header } from "@mandus/header";
+import { CartList } from "@mandus/cart-list";
+import { CheckoutButton } from "@mandus/checkout-button";
+
+// import { ItemRow } from "@mandus/item-row";
+// import { useNavigate } from "react-router-dom";
+import "./index.css";
 
 function CartPage() {
-  const dispatch = useDispatch();
-  const items = useSelector((state) => state.cart.items);
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
 
-  const handleRemove = (id) => {
-    dispatch(removeItem(id));
-  };
+  const itemsById = useSelector((state) => state.cart.itemsById);
 
-  // Räkna ut totalpris, om du vill
-  const total = items.reduce((sum, item) => sum + item.price, 0);
+  const cartItems = Object.values(itemsById);
+
+  console.log("cartItems:", cartItems);
+
+  const total = cartItems.reduce((sum, cItem) => {
+    return sum + cItem.price * cItem.count;
+  }, 0);
 
   return (
-    <div>
-      <h1>Cart Page</h1>
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            {item.name} - {item.price} kr
-            <button onClick={() => handleRemove(item.id)}>Ta bort</button>
-          </li>
-        ))}
-      </ul>
-      <p>Totalt: {total} kr</p>
-    </div>
+    <MenuContainer bgType="gray">
+      <Header
+        showBadge={false}
+        cartCount={cartItems.reduce((acc, i) => acc + i.count, 0)}
+      />
+
+      <div className="cart-box">
+        <CartList cartItems={cartItems} />
+
+        <div className="cart-total-row">
+          <span>TOTAL:</span>
+          <span>{total} SEK</span>
+        </div>
+
+        <CheckoutButton cartItems={cartItems} />
+      </div>
+    </MenuContainer>
   );
 }
 
