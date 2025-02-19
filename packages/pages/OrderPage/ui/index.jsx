@@ -1,14 +1,17 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Header } from "@mandus/header";
-import { PageContainer } from "../../../base/PageContainer";
-import { clearCart } from "../../CartPage";
 import { useNavigate } from "react-router-dom";
+
+import { clearCart } from "@mandus/cart-page";
+
+import { PageContainer } from "@mandus/page-container";
+import { Header } from "@mandus/header";
+import { NewOrderButton } from "@mandus/new-order-button";
+
 import "./index.css";
 
 export function OrderPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const orderResult = useSelector((state) => state.order.orderResult);
 
   if (!orderResult) {
@@ -37,13 +40,9 @@ export function OrderPage() {
         <p className="order-eta">ETA {diffMin} MIN</p>
         <p className="order-id">#{orderResult.id}</p>
 
-        <button
-          className="order-button new-order-button"
-          onClick={handleNewOrder}
-        >
-          GÖR EN NY BESTÄLLNING
-        </button>
-        <button className="order-button receipt-button" onClick={handleReceipt}>
+        <NewOrderButton onClick={handleNewOrder} />
+
+        <button className="receipt-button" onClick={handleReceipt}>
           SE KVITTO
         </button>
       </div>

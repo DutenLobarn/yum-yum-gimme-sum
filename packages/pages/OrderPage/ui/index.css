@@ -1,6 +1,6 @@
 .order-box {
   background-image: url("/src/assets/boxtop 1.svg");
-  background-size: contain; /* eller cover */
+  background-size: contain;
   background-repeat: no-repeat;
   padding-top: 2rem;
   text-align: center;
@@ -19,7 +19,7 @@
   font-size: 1.5rem;
 }
 
-.order-button {
+.receipt-button {
   width: 100%;
   color: #fff;
   padding: 1rem;
@@ -29,14 +29,8 @@
   font-weight: bold;
 }
 
-.order-button:hover {
+.receipt-button:hover {
   background-color: #444444;
-}
-
-.new-order-button {
-  margin-top: 2rem;
-  background-color: #353131;
-  border: none;
 }
 
 .receipt-button {

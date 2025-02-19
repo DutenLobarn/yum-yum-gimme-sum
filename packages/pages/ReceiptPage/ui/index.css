@@ -5,6 +5,7 @@
   border-radius: 6px;
   text-align: center;
   margin-top: 4rem;
+  margin-bottom: 7rem;
 }
 
 .receipt-title {
@@ -15,14 +16,12 @@
 
 .receipt-id {
   font-weight: bold;
-  /* margin-top: 0.5rem; */
   color: #605858;
 }
 
 .receipt-items {
   list-style: none;
   padding: 0;
-  /* margin: 1rem 0; */
 }
 
 .receipt-item-row {
@@ -31,66 +30,42 @@
 
 .item-quantity,
 .moms-text {
-  display: block; /* så att text-align gäller för just denna box */
+  display: block;
   text-align: left;
   margin-bottom: 0.5rem;
   font-size: 0.75rem;
-}
-
-.moms-text {
-  margin-top: 0rem;
-  margin-bottom: 0rem;
 }
 
 .receipt-total-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3531313d; /* samma bakgrund du hade */
+  background-color: #3531313d;
   margin: 1.5rem -1.5rem -0.9rem -1.5rem;
   padding: 1rem 1.5rem 1rem 1.5rem;
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
 }
 
-/* Denna containern har TOTAL och moms-text i en kolumn */
 .left-total-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* texten blir vänsterställd */
+  align-items: flex-start;
 }
 
 .total-label {
   font-size: 1rem;
   font-weight: bold;
-  /* margin-bottom: 0.3rem; */
 }
 
 .moms-text {
   font-size: 0.75rem;
-  color: #333; /* eller en ljusare/grå nyans */
+  color: #333;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
 }
 
 .receipt-total-price {
   font-size: 1.5rem;
   font-weight: bold;
-  /* valfritt: margin-left: 1rem; */
-}
-
-/* Knappen under rutan */
-.reciept-new-order-button {
-  width: 100%;
-  color: #fff;
-  border: none;
-  padding: 1rem;
-  margin-top: 7rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #353131;
-}
-
-.reciept-new-order-button:hover {
-  background-color: #555;
 }

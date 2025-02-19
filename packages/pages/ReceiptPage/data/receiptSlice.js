@@ -1,11 +1,9 @@
-// packages/pages/receipt-page/data/receiptSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // Hämta kvitto
 export const fetchReceipt = createAsyncThunk(
   "receipt/fetchReceipt",
   async (receiptId, thunkAPI) => {
-    // ev. hämta apiKey från store om behövs
     const state = thunkAPI.getState();
     const apiKey = state.order.apiKey;
 
@@ -21,7 +19,7 @@ export const fetchReceipt = createAsyncThunk(
     if (!resp.ok) {
       throw new Error(data.message || "Failed to fetch receipt");
     }
-    return data; // ex. { id, orderValue, items, timestamp, ... }
+    return data;
   }
 );
 
@@ -41,7 +39,7 @@ const receiptSlice = createSlice({
       })
       .addCase(fetchReceipt.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.receipt = action.payload.receipt; // { id, orderValue, items, ... }
+        state.receipt = action.payload.receipt;
       })
       .addCase(fetchReceipt.rejected, (state, action) => {
         state.status = "failed";

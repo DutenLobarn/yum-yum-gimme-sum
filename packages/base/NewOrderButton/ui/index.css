@@ -1,0 +1,15 @@
+.new-order-button {
+  width: 100%;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #353131;
+}
+
+.new-order-button:hover {
+  background-color: #555;
+}

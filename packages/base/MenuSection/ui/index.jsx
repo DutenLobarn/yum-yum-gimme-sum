@@ -1,12 +1,12 @@
 import { ItemRow } from "@mandus/item-row";
 import "./index.css";
 
-export function MenuSection({ title, price, items, layout, onAddToCart }) {
+export function MenuSection({ title, price, items, variant, onAddToCart }) {
   return (
     <div className="menu-section">
       {title && <ItemRow name={title} price={price} />}
 
-      {layout === "list" && (
+      {variant === "list" && (
         <ul className="menu-list">
           {items.map((item) => (
             <li
@@ -25,7 +25,7 @@ export function MenuSection({ title, price, items, layout, onAddToCart }) {
         </ul>
       )}
 
-      {layout === "buttons" && (
+      {variant === "buttons" && (
         <div className="menu-buttons">
           {items.map((item) => (
             <button

@@ -1,15 +1,18 @@
-// packages/pages/receipt-page/ui/ReceiptPage.jsx
 import { useEffect } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Header } from "@mandus/header";
-import { PageContainer } from "../../../base/PageContainer";
-import { clearCart } from "@mandus/cart-page";
-import { ItemRow } from "@mandus/item-row"; // <--- återanvänd din ItemRow
 
-import { fetchReceipt } from "../data/receiptSlice"; // se steg 2
-import "./index.css";
+import { fetchReceipt } from "../data/receiptSlice";
+import { clearCart } from "@mandus/cart-page";
+
+import { PageContainer } from "@mandus/page-container";
+import { Header } from "@mandus/header";
+import { ItemRow } from "@mandus/item-row";
+import { NewOrderButton } from "@mandus/new-order-button";
+
 import logo from "/src/assets/logo.svg";
+import "./index.css";
 
 export function ReceiptPage() {
   const dispatch = useDispatch();
@@ -30,20 +33,16 @@ export function ReceiptPage() {
   if (status === "failed") return <p>Kunde inte hämta kvitto.</p>;
   if (!receipt) return <p>Ingen data</p>;
 
-  // ex. receipt = { id, orderValue, items, timestamp, ... }
-
   const handleNewOrder = () => {
     dispatch(clearCart());
     navigate("/menu");
   };
 
-  console.log("Receipt object:", receipt);
-
   return (
     <PageContainer bgType="order">
       <Header cartCount={0} showCart={false} />
       <div className="receipt-box">
-        <img src={logo} alt="Kvitto-logo" className="receipt-logo" />
+        <img src={logo} alt="Kvitto-logo" />
 
         <h2 className="receipt-title">KVITTO</h2>
         <p className="receipt-id">#{receipt.id}</p>
@@ -67,9 +66,7 @@ export function ReceiptPage() {
           <span className="receipt-total-price">{receipt.orderValue} SEK</span>
         </div>
       </div>
-      <button className="reciept-new-order-button" onClick={handleNewOrder}>
-        GÖR EN NY BESTÄLLNING
-      </button>
+      <NewOrderButton onClick={handleNewOrder} />
     </PageContainer>
   );
 }

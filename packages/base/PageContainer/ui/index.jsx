@@ -2,12 +2,10 @@ import "./index.css";
 
 /**
  * PageContainer är en wrapper som t.ex. sätter bakgrund, fixar
- * en viss storlek och ev. padding.
- *
- * Du kan lägga <MenuHeader> inuti children eller själv i denna komponent.
+ * en viss storlek och padding.
  */
 /**
- * PageContainer kan ta en "bgType" prop (ex. "palm", "gray", etc.)
+ * PageContainer kan ta en "bgType" prop (ex. "palm", "gray", order.)
  */
 export function PageContainer({ bgType = "palm", children }) {
   // Välj klasser beroende på bgType

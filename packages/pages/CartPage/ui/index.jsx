@@ -1,27 +1,14 @@
-// packages/pages/cart-page/ui/CartPage.jsx
-import {
-  useSelector,
-  // , useDispatch
-} from "react-redux";
-// import { addItem, removeOne } from "../data/cartSlice";
-import { PageContainer } from "../../../base/PageContainer";
+import { useSelector } from "react-redux";
+import { PageContainer } from "@mandus/page-container";
 import { Header } from "@mandus/header";
 import { CartList } from "@mandus/cart-list";
 import { CheckoutButton } from "@mandus/checkout-button";
-
-// import { ItemRow } from "@mandus/item-row";
-// import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 function CartPage() {
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-
   const itemsById = useSelector((state) => state.cart.itemsById);
 
   const cartItems = Object.values(itemsById);
-
-  console.log("cartItems:", cartItems);
 
   const total = cartItems.reduce((sum, cItem) => {
     return sum + cItem.price * cItem.count;

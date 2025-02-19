@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { fetchMenu } from "../data/menuSlice";
 import { addItem } from "@mandus/cart-page";
 
+import { PageContainer } from "@mandus/page-container";
 import { Header } from "@mandus/header";
-import { PageContainer } from "../../../base/PageContainer";
 import { MenuSection } from "@mandus/menu-section";
+
 import "./index.css";
 
 export function MenuPage() {
@@ -33,12 +35,15 @@ export function MenuPage() {
 
   // Filtrera
   const wontons = items.filter((i) => i.type === "wonton");
+  const wontonPrice = wontons.length > 0 ? wontons[0].price : 0;
+
   const dips = items.filter((i) => i.type === "dip");
+  const dipPrice = dips.length > 0 ? dips[0].price : 0;
+
   const drinks = items.filter((i) => i.type === "drink");
+  const drinkPrice = drinks.length > 0 ? drinks[0].price : 0;
 
   const handleAddToCart = (item) => {
-    console.log("Adding item1111:", item);
-
     dispatch(addItem(item));
   };
 
@@ -48,22 +53,23 @@ export function MenuPage() {
       <div className="menu-box">
         <h2>MENY</h2>
         <MenuSection
-          price="9"
-          layout="list"
+          price={wontonPrice}
+          variant="list"
           items={wontons}
           onAddToCart={handleAddToCart}
         />
         <MenuSection
           title="DIPSÅS"
-          price="19"
-          layout="buttons"
+          // price={dipPrice}
+          price={dipPrice}
+          variant="buttons"
           items={dips}
           onAddToCart={handleAddToCart}
         />
         <MenuSection
           title="DRICKA"
-          price="19"
-          layout="buttons"
+          price={drinkPrice}
+          variant="buttons"
           items={drinks}
           onAddToCart={handleAddToCart}
         />

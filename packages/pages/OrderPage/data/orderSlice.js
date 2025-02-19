@@ -29,7 +29,6 @@ export const createTenant = createAsyncThunk(
     );
     const data = await resp.json();
     if (!resp.ok) {
-      console.log("Server error:", resp.status, data);
       throw new Error(data.message || "Tenant creation failed");
     }
     return data;
@@ -40,12 +39,6 @@ export const createTenant = createAsyncThunk(
 export const placeOrder = createAsyncThunk(
   "order/placeOrder",
   async ({ items, tenantName, apiKey }) => {
-    console.log("Placing order with:", {
-      tenantName,
-      apiKey,
-      items,
-    });
-
     const resp = await fetch(
       `https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/${tenantName}/orders`,
       {
@@ -57,7 +50,12 @@ export const placeOrder = createAsyncThunk(
         body: JSON.stringify({ items }),
       }
     );
-    return await resp.json(); // { id, orderValue, eta, ... }
+
+    if (!resp.ok) {
+      const errorData = await resp.json();
+      throw new Error(errorData.message || "Place order failed");
+    }
+    return await resp.json();
   }
 );
 
@@ -65,7 +63,7 @@ const orderSlice = createSlice({
   name: "order",
   initialState: {
     apiKey: null,
-    tenantName: "mandus-yum-truck-" + Date.now(), // unikt
+    tenantName: "mandus-yum-truck-" + Date.now(),
     tenantCreated: false,
     orderResult: null,
   },
@@ -80,11 +78,10 @@ const orderSlice = createSlice({
       // createTenant
       .addCase(createTenant.fulfilled, (state, action) => {
         state.tenantCreated = true;
-        // spara ex. action.payload.id om du vill
       })
       // placeOrder
       .addCase(placeOrder.fulfilled, (state, action) => {
-        state.orderResult = action.payload.order; // { id, orderValue, eta, ... }
+        state.orderResult = action.payload.order;
       });
   },
 });

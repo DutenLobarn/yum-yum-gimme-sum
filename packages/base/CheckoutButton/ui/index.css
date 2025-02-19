@@ -1,37 +1,17 @@
-.menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.cart-wrapper {
-  position: relative; /* Så vi kan placera ikoner absolut inuti */
-  width: 64px; /* Bestäm en fast storlek för wrappern */
-  height: 64px;
-  cursor: pointer;
-}
-
-.cart-icon {
-  position: absolute;
-  top: -15px;
-  left: -15px;
-}
-
-.cart-badge {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background-color: red;
+.checkout-button {
+  width: 110%;
+  background-color: #333;
   color: #fff;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 0.8rem;
+  border: none;
+  padding: 1rem;
+  margin: 0rem 0rem -1rem -1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
-.union-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.checkout-button:hover {
+  background-color: #555;
 }
