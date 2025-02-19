@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Header } from "@mandus/header";
-import { MenuContainer } from "@mandus/menu-container";
+import { PageContainer } from "../../../base/PageContainer";
 import { clearCart } from "@mandus/cart-page";
 import { ItemRow } from "@mandus/item-row"; // <--- återanvänd din ItemRow
 
@@ -40,7 +40,7 @@ export function ReceiptPage() {
   console.log("Receipt object:", receipt);
 
   return (
-    <MenuContainer bgType="order">
+    <PageContainer bgType="order">
       <Header cartCount={0} showCart={false} />
       <div className="receipt-box">
         <img src={logo} alt="Kvitto-logo" className="receipt-logo" />
@@ -70,6 +70,6 @@ export function ReceiptPage() {
       <button className="reciept-new-order-button" onClick={handleNewOrder}>
         GÖR EN NY BESTÄLLNING
       </button>
-    </MenuContainer>
+    </PageContainer>
   );
 }

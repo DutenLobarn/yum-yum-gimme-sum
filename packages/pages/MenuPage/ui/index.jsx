@@ -4,7 +4,7 @@ import { fetchMenu } from "../data/menuSlice";
 import { addItem } from "@mandus/cart-page";
 
 import { Header } from "@mandus/header";
-import { MenuContainer } from "@mandus/menu-container";
+import { PageContainer } from "../../../base/PageContainer";
 import { MenuSection } from "@mandus/menu-section";
 import "./index.css";
 
@@ -43,7 +43,7 @@ export function MenuPage() {
   };
 
   return (
-    <MenuContainer bgType="palm">
+    <PageContainer bgType="palm">
       <Header cartCount={cartCount} />
       <div className="menu-box">
         <h2>MENY</h2>
@@ -68,6 +68,6 @@ export function MenuPage() {
           onAddToCart={handleAddToCart}
         />
       </div>
-    </MenuContainer>
+    </PageContainer>
   );
 }

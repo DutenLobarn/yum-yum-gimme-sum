@@ -4,7 +4,7 @@ import {
   // , useDispatch
 } from "react-redux";
 // import { addItem, removeOne } from "../data/cartSlice";
-import { MenuContainer } from "@mandus/menu-container";
+import { PageContainer } from "../../../base/PageContainer";
 import { Header } from "@mandus/header";
 import { CartList } from "@mandus/cart-list";
 import { CheckoutButton } from "@mandus/checkout-button";
@@ -28,7 +28,7 @@ function CartPage() {
   }, 0);
 
   return (
-    <MenuContainer bgType="gray">
+    <PageContainer bgType="gray">
       <Header
         showBadge={false}
         cartCount={cartItems.reduce((acc, i) => acc + i.count, 0)}
@@ -44,7 +44,7 @@ function CartPage() {
 
         <CheckoutButton cartItems={cartItems} />
       </div>
-    </MenuContainer>
+    </PageContainer>
   );
 }
 

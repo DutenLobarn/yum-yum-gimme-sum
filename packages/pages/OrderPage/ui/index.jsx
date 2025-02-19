@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Header } from "@mandus/header";
-import { MenuContainer } from "@mandus/menu-container";
-import { clearCart } from "@mandus/cart-page";
+import { PageContainer } from "../../../base/PageContainer";
+import { clearCart } from "../../CartPage";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 
@@ -30,7 +30,7 @@ export function OrderPage() {
   const diffMin = Math.max(0, Math.round(diffMs / 60000));
 
   return (
-    <MenuContainer bgType="order">
+    <PageContainer bgType="order">
       <Header cartCount={0} showCart={false} />
       <div className="order-box">
         <h2 className="order-heading">DINA WONTONS TILLAGAS!</h2>
@@ -47,6 +47,6 @@ export function OrderPage() {
           SE KVITTO
         </button>
       </div>
-    </MenuContainer>
+    </PageContainer>
   );
 }
