@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux";
+
 import { PageContainer } from "@mandus/page-container";
 import { Header } from "@mandus/header";
 import { CartList } from "@mandus/cart-list";
 import { CheckoutButton } from "@mandus/checkout-button";
+import { NewOrderButton } from "@mandus/new-order-button";
+
 import "./index.css";
 
 function CartPage() {
@@ -22,14 +25,21 @@ function CartPage() {
       />
 
       <div className="cart-box">
-        <CartList cartItems={cartItems} />
-
+        {cartItems.length === 0 ? (
+          <p>Din varukorg är tom</p>
+        ) : (
+          <CartList cartItems={cartItems} />
+        )}
         <div className="cart-total-row">
           <span>TOTAL:</span>
           <span>{total} SEK</span>
         </div>
 
-        <CheckoutButton cartItems={cartItems} />
+        {cartItems.length === 0 ? (
+          <NewOrderButton className="checkout-button" />
+        ) : (
+          <CheckoutButton cartItems={cartItems} />
+        )}
       </div>
     </PageContainer>
   );

@@ -29,13 +29,11 @@ const cartSlice = createSlice({
         if (cartItem.count > 0) {
           cartItem.count -= 1;
         }
-        // OBS: Vi tar inte bort varan om count=0
-        // Den finns kvar i itemsById men har count=0
 
-        // Vill man ta bort dom så lägger jag till detta:
-        // if (cartItem.count <= 0) {
-        //   delete state.itemsById[id];
-        // }
+        // Jag la till denna för man vill ta bort dom, därför lägger jag till detta:
+        if (cartItem.count <= 0) {
+          delete state.itemsById[id];
+        }
       }
     },
 

@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { fetchReceipt } from "../data/receiptSlice";
-import { clearCart } from "@mandus/cart-page";
 
 import { PageContainer } from "@mandus/page-container";
 import { Header } from "@mandus/header";
@@ -16,7 +15,6 @@ import "./index.css";
 
 export function ReceiptPage() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { orderId } = useParams();
 
   // Hämta kvitto från store
@@ -32,11 +30,6 @@ export function ReceiptPage() {
   if (status === "loading") return <p>Laddar kvitto...</p>;
   if (status === "failed") return <p>Kunde inte hämta kvitto.</p>;
   if (!receipt) return <p>Ingen data</p>;
-
-  const handleNewOrder = () => {
-    dispatch(clearCart());
-    navigate("/menu");
-  };
 
   return (
     <PageContainer bgType="order">
@@ -66,7 +59,7 @@ export function ReceiptPage() {
           <span className="receipt-total-price">{receipt.orderValue} SEK</span>
         </div>
       </div>
-      <NewOrderButton onClick={handleNewOrder} />
+      <NewOrderButton />
     </PageContainer>
   );
 }

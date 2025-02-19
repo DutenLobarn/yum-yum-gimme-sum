@@ -1,7 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-import { clearCart } from "@mandus/cart-page";
 
 import { PageContainer } from "@mandus/page-container";
 import { Header } from "@mandus/header";
@@ -10,18 +8,12 @@ import { NewOrderButton } from "@mandus/new-order-button";
 import "./index.css";
 
 export function OrderPage() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const orderResult = useSelector((state) => state.order.orderResult);
 
   if (!orderResult) {
     return <p>Ingen beställning funnen...</p>;
   }
-
-  const handleNewOrder = () => {
-    dispatch(clearCart());
-    navigate("/menu");
-  };
 
   const handleReceipt = () => {
     navigate(`/receipt/${orderResult.id}`);
@@ -40,7 +32,7 @@ export function OrderPage() {
         <p className="order-eta">ETA {diffMin} MIN</p>
         <p className="order-id">#{orderResult.id}</p>
 
-        <NewOrderButton onClick={handleNewOrder} />
+        <NewOrderButton />
 
         <button className="receipt-button" onClick={handleReceipt}>
           SE KVITTO
