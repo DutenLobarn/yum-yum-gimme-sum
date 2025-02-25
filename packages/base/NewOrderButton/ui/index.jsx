@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { clearCart } from "@mandus/cart-page";
+import { clearCart } from "@mandus/slices";
 
 import "./index.css";
 

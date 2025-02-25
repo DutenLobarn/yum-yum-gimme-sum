@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchMenu } from "../data/menuSlice";
-import { addItem } from "@mandus/cart-page";
+import { addItem, fetchMenu } from "@mandus/slices";
 
 import { PageContainer } from "@mandus/page-container";
 import { Header } from "@mandus/header";

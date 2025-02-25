@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addItem, removeOne } from "@mandus/cart-page";
+import { addItem, removeOne } from "@mandus/slices";
 import { ItemRow } from "@mandus/item-row";
 import "./index.css";
 

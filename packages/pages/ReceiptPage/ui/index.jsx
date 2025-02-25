@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { fetchReceipt } from "../data/receiptSlice";
+import { fetchReceipt } from "@mandus/slices";
 
 import { PageContainer } from "@mandus/page-container";
 import { Header } from "@mandus/header";

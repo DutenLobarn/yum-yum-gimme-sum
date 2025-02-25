@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { placeOrder } from "@mandus/order-page";
+import { placeOrder } from "@mandus/slices";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 

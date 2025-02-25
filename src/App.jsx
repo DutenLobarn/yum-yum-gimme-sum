@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 
 import { router } from "@mandus/router";
-import { fetchApiKey, createTenant } from "@mandus/order-page";
+import { fetchApiKey, createTenant } from "@mandus/slices";
 
 function App() {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { cartReducer } from "@mandus/cart-page";
-import { menuReducer } from "@mandus/menu-page";
-import { orderReducer } from "@mandus/order-page";
-import { receiptReducer } from "@mandus/receipt-page";
+import { cartReducer } from "@mandus/slices";
+import { menuReducer } from "@mandus/slices";
+import { orderReducer } from "@mandus/slices";
+import { receiptReducer } from "@mandus/slices";
 
 const store = configureStore({
   reducer: {
